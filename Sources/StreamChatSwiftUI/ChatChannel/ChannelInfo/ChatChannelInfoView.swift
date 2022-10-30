@@ -134,20 +134,6 @@ public struct ChatChannelInfoView: View, KeyboardReadable {
                     }
                 }
             }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
-                viewModel.channel.isDirectMessageChannel ? nil :
-                    Button {
-                        viewModel.addUsersShown = true
-                    } label: {
-                        Image(systemName: "person.badge.plus")
-                            .customizable()
-                            .foregroundColor(Color.white)
-                            .padding(.all, 8)
-                            .background(colors.tintColor)
-                            .clipShape(Circle())
-                    }
-            }
         }
         .onReceive(keyboardWillChangePublisher) { visible in
             viewModel.keyboardShown = visible
